@@ -1,11 +1,11 @@
-var knex = require('knex')({
-    client: 'mysql2',
-    connection: {
-      host : '127.0.0.1',
-      user : 'root',
-      password : '',
-      database : 'usertest'
-    }
-  });
+const knex = require("knex")({
+  client: "mysql2",
+  connection: {
+      host: process.env.DB_HOST || "127.0.0.1",
+      user: process.env.DB_USER || "root",
+      password: process.env.DB_PASS || "",
+      database: process.env.DB_NAME || "apiusers"
+  }
+});
 
-module.exports = knex
+module.exports = knex;

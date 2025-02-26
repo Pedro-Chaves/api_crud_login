@@ -1,15 +1,15 @@
-var bodyParser = require('body-parser')
-var express = require("express")
-var app = express()
-var router = require("./routes/routes")
- 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
-app.use(bodyParser.json())
+require("dotenv").config();
+const express = require("express");
+const router = require("./routes/routes");
 
-app.use("/",router);
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-app.listen(8686,() => {
-    console.log("Servidor rodando")
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use("/", router);
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
