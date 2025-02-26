@@ -13,7 +13,7 @@ Este é um projeto de API REST desenvolvida com **Express.js** e **MySQL**, foca
 
 Clone o repositório:
 ```sh
-git clone <git@github.com:Pedro-Chaves/api_crud_login.git>
+git clone git@github.com:Pedro-Chaves/api_crud_login.git
 cd api_crud_login
 ```
 
