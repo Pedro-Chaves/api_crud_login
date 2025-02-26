@@ -32,6 +32,31 @@ DB_NAME=apiusers
 JWT_SECRET=sua_chave_secreta
 ```
 
+## Configuração do Banco de Dados
+Crie um banco de dados chamado **apiusers** e adicione as seguintes tabelas:
+
+### Tabela `users`
+```sql
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role INT NOT NULL DEFAULT 0
+);
+```
+
+### Tabela `tokens`
+```sql
+CREATE TABLE tokens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    token VARCHAR(255) NOT NULL,
+    user_id INT NOT NULL,
+    active BOOLEAN DEFAULT 1,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+```
+
 ## Uso
 
 ### Iniciar o Servidor
