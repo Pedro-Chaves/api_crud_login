@@ -11,6 +11,8 @@ router.route("/user/:id")
     .get(AdminAuth, UserController.getUserById)
     .delete(AdminAuth, UserController.delete);
 
+router.post("/user/validate_admin", AdminAuth, UserController.validateAdmin);
+
 router.post("/user/create", UserController.create);
 router.post("/user/login", UserController.login);
 router.post("/user/password_recover", UserController.passwordRecover);

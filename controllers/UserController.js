@@ -134,6 +134,10 @@ class UserController {
             return UserController.response(res, 500, "Erro interno do servidor", { error: error.message });
         }
     }
+
+    async validateAdmin(req, res){
+        return UserController.response(res, 200, "Admin autorizado");
+    }
 }
 
 module.exports = new UserController();
